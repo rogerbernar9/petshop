@@ -378,20 +378,37 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>/var/www/var/log/dev.log</argument>
     </service>
-    <service id="App\Controller\HelloController" class="App\Controller\HelloController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-    </service>
-    <service id="App\Controller\ProdutoController" class="App\Controller\ProdutoController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\DefaultController" class="App\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
     <service id="App\Form\ProdutoType" class="App\Form\ProdutoType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\AnimalRepository" class="App\Repository\AnimalRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ClienteRepository" class="App\Repository\ClienteRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\EnderecoRepository" class="App\Repository\EnderecoRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\EspecieRepository" class="App\Repository\EspecieRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\FuncionarioRepository" class="App\Repository\FuncionarioRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ProdutoRepository" class="App\Repository\ProdutoRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\RacaRepository" class="App\Repository\RacaRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1943,6 +1960,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2710,7 +2735,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.gjY_LEb"/>
+      <argument type="service" id=".service_locator.kYunZfx"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4115,6 +4140,9 @@
     </service>
     <service id="maker.user_class_builder" class="Symfony\Bundle\MakerBundle\Security\UserClassBuilder" public="false"/>
     <service id="maker.security_config_updater" class="Symfony\Bundle\MakerBundle\Security\SecurityConfigUpdater" public="false"/>
+    <service id="maker.renderer.form_type_renderer" class="Symfony\Bundle\MakerBundle\Renderer\FormTypeRenderer" public="false">
+      <argument type="service" id="maker.generator"/>
+    </service>
     <service id="maker.maker.make_authenticator" class="Symfony\Bundle\MakerBundle\Maker\MakeAuthenticator" public="false">
       <tag name="maker.command"/>
       <argument type="service" id="maker.file_manager"/>
@@ -4132,6 +4160,7 @@
     <service id="maker.maker.make_crud" class="Symfony\Bundle\MakerBundle\Maker\MakeCrud" public="false">
       <tag name="maker.command"/>
       <argument type="service" id="maker.doctrine_helper"/>
+      <argument type="service" id="maker.renderer.form_type_renderer"/>
     </service>
     <service id="maker.maker.make_entity" class="Symfony\Bundle\MakerBundle\Maker\MakeEntity" public="false">
       <tag name="maker.command"/>
@@ -4146,9 +4175,16 @@
     <service id="maker.maker.make_form" class="Symfony\Bundle\MakerBundle\Maker\MakeForm" public="false">
       <tag name="maker.command"/>
       <argument type="service" id="maker.doctrine_helper"/>
+      <argument type="service" id="maker.renderer.form_type_renderer"/>
     </service>
     <service id="maker.maker.make_functional_test" class="Symfony\Bundle\MakerBundle\Maker\MakeFunctionalTest" public="false">
       <tag name="maker.command"/>
+    </service>
+    <service id="maker.maker.make_registration_form" class="Symfony\Bundle\MakerBundle\Maker\MakeRegistrationForm" public="false">
+      <tag name="maker.command"/>
+      <argument type="service" id="maker.file_manager"/>
+      <argument type="service" id="maker.renderer.form_type_renderer"/>
+      <argument type="service" id="router.default"/>
     </service>
     <service id="maker.maker.make_serializer_encoder" class="Symfony\Bundle\MakerBundle\Maker\MakeSerializerEncoder" public="false">
       <tag name="maker.command"/>
@@ -4216,16 +4252,24 @@
         <argument>server:log</argument>
       </call>
     </service>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\HelloController" class="App\Controller\HelloController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\HelloController" class="App\Controller\HelloController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\ProdutoController" class="App\Controller\ProdutoController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ProdutoController" class="App\Controller\ProdutoController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProdutoType" class="App\Form\ProdutoType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProdutoType" class="App\Form\ProdutoType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AnimalRepository" class="App\Repository\AnimalRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\AnimalRepository" class="App\Repository\AnimalRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ClienteRepository" class="App\Repository\ClienteRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ClienteRepository" class="App\Repository\ClienteRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EnderecoRepository" class="App\Repository\EnderecoRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EnderecoRepository" class="App\Repository\EnderecoRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EspecieRepository" class="App\Repository\EspecieRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EspecieRepository" class="App\Repository\EspecieRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FuncionarioRepository" class="App\Repository\FuncionarioRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\FuncionarioRepository" class="App\Repository\FuncionarioRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProdutoRepository" class="App\Repository\ProdutoRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProdutoRepository" class="App\Repository\ProdutoRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RacaRepository" class="App\Repository\RacaRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RacaRepository" class="App\Repository\RacaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
       <tag name="console.command" command="make:auth"/>
       <argument type="service" id="maker.maker.make_authenticator"/>
@@ -4296,6 +4340,15 @@
       <argument type="service" id="maker.generator"/>
       <call method="setName">
         <argument>make:functional-test</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_registration_form" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
+      <tag name="console.command" command="make:registration-form"/>
+      <argument type="service" id="maker.maker.make_registration_form"/>
+      <argument type="service" id="maker.file_manager"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:registration-form</argument>
       </call>
     </service>
     <service id="maker.auto_command.make_serializer_encoder" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
@@ -4455,11 +4508,16 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.gjY_LEb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.kYunZfx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\AnimalRepository" type="service" id="App\Repository\AnimalRepository"/>
+        <argument key="App\Repository\ClienteRepository" type="service" id="App\Repository\ClienteRepository"/>
+        <argument key="App\Repository\EnderecoRepository" type="service" id="App\Repository\EnderecoRepository"/>
+        <argument key="App\Repository\EspecieRepository" type="service" id="App\Repository\EspecieRepository"/>
         <argument key="App\Repository\FuncionarioRepository" type="service" id="App\Repository\FuncionarioRepository"/>
         <argument key="App\Repository\ProdutoRepository" type="service" id="App\Repository\ProdutoRepository"/>
+        <argument key="App\Repository\RacaRepository" type="service" id="App\Repository\RacaRepository"/>
       </argument>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
@@ -4739,7 +4797,7 @@
       </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.Qgahj.s"/>
+      <argument type="service" id=".service_locator._8xViNp"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -4800,6 +4858,7 @@
         <argument key="make:fixtures">maker.auto_command.make_fixtures</argument>
         <argument key="make:form">maker.auto_command.make_form</argument>
         <argument key="make:functional-test">maker.auto_command.make_functional_test</argument>
+        <argument key="make:registration-form">maker.auto_command.make_registration_form</argument>
         <argument key="make:serializer:encoder">maker.auto_command.make_serializer_encoder</argument>
         <argument key="make:serializer:normalizer">maker.auto_command.make_serializer_normalizer</argument>
         <argument key="make:subscriber">maker.auto_command.make_subscriber</argument>
@@ -4811,7 +4870,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.Qgahj.s" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator._8xViNp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -4862,6 +4921,7 @@
         <argument key="maker.auto_command.make_form" type="service" id="maker.auto_command.make_form"/>
         <argument key="maker.auto_command.make_functional_test" type="service" id="maker.auto_command.make_functional_test"/>
         <argument key="maker.auto_command.make_migration" type="service" id="maker.auto_command.make_migration"/>
+        <argument key="maker.auto_command.make_registration_form" type="service" id="maker.auto_command.make_registration_form"/>
         <argument key="maker.auto_command.make_serializer_encoder" type="service" id="maker.auto_command.make_serializer_encoder"/>
         <argument key="maker.auto_command.make_serializer_normalizer" type="service" id="maker.auto_command.make_serializer_normalizer"/>
         <argument key="maker.auto_command.make_subscriber" type="service" id="maker.auto_command.make_subscriber"/>

@@ -31,41 +31,67 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
         echo "<!doctype html>
 <html lang=\"en\">
   <head>
-    <!-- Required meta tags -->
     <meta charset=\"utf-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
-
-    <!-- Bootstrap CSS -->
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">
-
-    <script type=\"text/javascript\" src=\"https://use.fontawesome.com/6410112707.js\"></script>
-    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+    <meta name=\"description\" content=\"\">
+    <meta name=\"author\" content=\"\">
 
 
     <title>";
-        // line 15
+        // line 10
         $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-  </head>
-  <body>
-  <h1>CRUD Symfony 4 Básico</h1>
-    <div class=\"container\">
-        <div class=\"row mt-5\">
-            <div class=\"col-md-12\">
-                ";
-        // line 22
-        $this->displayBlock('body', $context, $blocks);
-        // line 23
-        echo "            </div>
-        </div>
-    </div>
+        echo "PetShop School of net</title>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>
-    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>
+    <!-- Bootstrap core CSS -->
+    <link href=\"/assets/css/bootstrap.min.css\" rel=\"stylesheet\">
+
+    <!-- Custom styles for this template -->
+    <link href=\"/assets/css/starter-template.css\" rel=\"stylesheet\">
+  </head>
+
+  <body>
+
+    <nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">
+      <a class=\"navbar-brand\" href=\"#\">Navbar</a>
+      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+      </button>
+
+      <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">
+        <ul class=\"navbar-nav mr-auto\">
+          <li class=\"nav-item active\">
+            <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+          </li>
+          <li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"#\">Clientes</a>
+          </li>
+          <li class=\"nav-item\">
+              <a class=\"nav-link\" href=\"#\">Animais</a>
+          </li>
+  
+        </ul>
+
+      </div>
+    </nav>
+
+    <main role=\"main\" class=\"container\">
+
+      ";
+        // line 46
+        $this->displayBlock('body', $context, $blocks);
+        // line 48
+        echo "
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
+    <script src=\"/assets/js/bootstrap.min.js\"></script>
   </body>
-</html>";
+</html>
+";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -74,7 +100,7 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
 
     }
 
-    // line 15
+    // line 10
     public function block_title($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -83,7 +109,6 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "CRUD - Symfony 4";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -92,7 +117,7 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
 
     }
 
-    // line 22
+    // line 46
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -101,6 +126,8 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
+        // line 47
+        echo "      ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -116,7 +143,7 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
 
     public function getDebugInfo()
     {
-        return array (  96 => 22,  78 => 15,  59 => 23,  57 => 22,  47 => 15,  31 => 1,);
+        return array (  130 => 47,  121 => 46,  104 => 10,  83 => 48,  81 => 46,  42 => 10,  31 => 1,);
     }
 
     public function getSourceContext()
@@ -124,34 +151,61 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
         return new Twig_Source("<!doctype html>
 <html lang=\"en\">
   <head>
-    <!-- Required meta tags -->
     <meta charset=\"utf-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
-
-    <!-- Bootstrap CSS -->
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">
-
-    <script type=\"text/javascript\" src=\"https://use.fontawesome.com/6410112707.js\"></script>
-    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+    <meta name=\"description\" content=\"\">
+    <meta name=\"author\" content=\"\">
 
 
-    <title>{% block title %}CRUD - Symfony 4{% endblock %}</title>
+    <title>{% block title %}{% endblock %}PetShop School of net</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href=\"/assets/css/bootstrap.min.css\" rel=\"stylesheet\">
+
+    <!-- Custom styles for this template -->
+    <link href=\"/assets/css/starter-template.css\" rel=\"stylesheet\">
   </head>
-  <body>
-  <h1>CRUD Symfony 4 Básico</h1>
-    <div class=\"container\">
-        <div class=\"row mt-5\">
-            <div class=\"col-md-12\">
-                {% block body %}{% endblock %}
-            </div>
-        </div>
-    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>
-    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>
+  <body>
+
+    <nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">
+      <a class=\"navbar-brand\" href=\"#\">Navbar</a>
+      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+      </button>
+
+      <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">
+        <ul class=\"navbar-nav mr-auto\">
+          <li class=\"nav-item active\">
+            <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+          </li>
+          <li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"#\">Clientes</a>
+          </li>
+          <li class=\"nav-item\">
+              <a class=\"nav-link\" href=\"#\">Animais</a>
+          </li>
+  
+        </ul>
+
+      </div>
+    </nav>
+
+    <main role=\"main\" class=\"container\">
+
+      {% block body %}
+      {% endblock %}
+
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
+    <script src=\"/assets/js/bootstrap.min.js\"></script>
   </body>
-</html>", "base.html.twig", "/var/www/templates/base.html.twig");
+</html>
+", "base.html.twig", "/var/www/templates/base.html.twig");
     }
 }

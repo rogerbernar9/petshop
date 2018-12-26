@@ -20,15 +20,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
-        'app_hello_world' => array(array(), array('_controller' => 'App\\Controller\\HelloController::world'), array(), array(array('text', '/ola-mundo')), array(), array()),
-        'app_hello_mensagem' => array(array(), array('_controller' => 'App\\Controller\\HelloController::mensagem'), array(), array(array('text', '/mostrar-mensagem')), array(), array()),
-        'app_hello_produto' => array(array(), array('_controller' => 'App\\Controller\\HelloController::produto'), array(), array(array('text', '/cadastrar-produto')), array(), array()),
-        'app_hello_formulario' => array(array(), array('_controller' => 'App\\Controller\\HelloController::formulario'), array(), array(array('text', '/formulario')), array(), array()),
-        'listar_produto' => array(array(), array('_controller' => 'App\\Controller\\ProdutoController::index'), array(), array(array('text', '/produto')), array(), array()),
-        'cadastrar_produto' => array(array(), array('_controller' => 'App\\Controller\\ProdutoController::create'), array(), array(array('text', '/produto/cadastrar')), array(), array()),
-        'editar_produto' => array(array('id'), array('_controller' => 'App\\Controller\\ProdutoController::update'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/produto/editar')), array(), array()),
-        'apagar_produto' => array(array('id'), array('_controller' => 'App\\Controller\\ProdutoController::delete'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/produto/apagar')), array(), array()),
-        'visualizar_produto' => array(array('id'), array('_controller' => 'App\\Controller\\ProdutoController::view'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/produto/visualizar')), array(), array()),
+        'default' => array(array(), array('_controller' => 'App\\Controller\\DefaultController::index'), array(), array(array('text', '/')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format', true), array('variable', '/', '\\d+', 'code', true), array('text', '/_error')), array(), array()),
         '_wdt' => array(array('token'), array('_controller' => 'web_profiler.controller.profiler::toolbarAction'), array(), array(array('variable', '/', '[^/]++', 'token', true), array('text', '/_wdt')), array(), array()),
         '_profiler_home' => array(array(), array('_controller' => 'web_profiler.controller.profiler::homeAction'), array(), array(array('text', '/_profiler/')), array(), array()),
