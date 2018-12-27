@@ -74,7 +74,10 @@ class __TwigTemplate_b9d9a1b3b1845d07db6bb57a894734a1156844852be750b23702dc95186
     <hr>
     <div class=\"row\">
         <div class=\"col-md-12\">
-            <a href=\"\" class=\"btn btn-primary pull-right\">Cadastrar Cliente</a></div>
+            <a href=\"";
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cadastrar_cliente");
+        echo "\" class=\"btn btn-primary pull-right\">Cadastrar Cliente</a></div>
     </div>
 
     <table class=\"table table-hover table-striped mt-3\">
@@ -149,7 +152,7 @@ class __TwigTemplate_b9d9a1b3b1845d07db6bb57a894734a1156844852be750b23702dc95186
 
     public function getDebugInfo()
     {
-        return array (  127 => 35,  117 => 30,  109 => 27,  103 => 26,  99 => 25,  96 => 24,  91 => 23,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  130 => 35,  120 => 30,  112 => 27,  106 => 26,  102 => 25,  99 => 24,  94 => 23,  79 => 11,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -164,7 +167,7 @@ class __TwigTemplate_b9d9a1b3b1845d07db6bb57a894734a1156844852be750b23702dc95186
     <hr>
     <div class=\"row\">
         <div class=\"col-md-12\">
-            <a href=\"\" class=\"btn btn-primary pull-right\">Cadastrar Cliente</a></div>
+            <a href=\"{{ path('cadastrar_cliente') }}\" class=\"btn btn-primary pull-right\">Cadastrar Cliente</a></div>
     </div>
 
     <table class=\"table table-hover table-striped mt-3\">

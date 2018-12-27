@@ -70,11 +70,67 @@ class __TwigTemplate_91bd68699511c7bec5148e3e3e79e54aac14f766a7029cdbdf481f8f965
 
         // line 6
         echo "
+";
+        // line 7
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 7, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 8
+            echo "    <div class=\"alert alert-success\">
+        ";
+            // line 9
+            echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
+            echo "
+    </div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 12, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "warning"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 13
+            echo "    <div class=\"alert alert-warning\">
+        ";
+            // line 14
+            echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
+            echo "
+    </div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 17, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "danger"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 18
+            echo "    <div class=\"alert alert-danger\">
+        ";
+            // line 19
+            echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
+            echo "
+    </div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 22
+        echo "
+
+
     <h1>Listagem de Animais</h1>
     <hr>
     <div class=\"row\">
         <div class=\"col-md-12\">
-            <a href=\"\" class=\"btn btn-primary pull-right\">Cadastrar Animal</a></div>
+            <a href=\"";
+        // line 29
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cadastrar_animal");
+        echo "\" class=\"btn btn-primary pull-right\">Cadastrar Animal</a></div>
     </div>
 
     <table class=\"table table-hover table-striped mt-3\">
@@ -87,33 +143,33 @@ class __TwigTemplate_91bd68699511c7bec5148e3e3e79e54aac14f766a7029cdbdf481f8f965
         </thead>
         <tbody>
             ";
-        // line 23
+        // line 41
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["animais"]) || array_key_exists("animais", $context) ? $context["animais"] : (function () { throw new Twig_Error_Runtime('Variable "animais" does not exist.', 23, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["animais"]) || array_key_exists("animais", $context) ? $context["animais"] : (function () { throw new Twig_Error_Runtime('Variable "animais" does not exist.', 41, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["animal"]) {
-            // line 24
+            // line 42
             echo "            <tr>
                 <td>";
-            // line 25
+            // line 43
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["animal"], "id", array()), "html", null, true);
             echo "</td>
                 <td><a href=\"";
-            // line 26
+            // line 44
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("visualizar_animal", array("id" => twig_get_attribute($this->env, $this->source, $context["animal"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["animal"], "nome", array()), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["animal"], "dataNascimento", array()), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["animal"], "dataNascimento", array()), "d/m/Y"), "html", null, true);
             echo "</td>
             </tr>
             ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 30
+            // line 48
             echo "                <tr>
                     <td colspan=\"3\">Nenhum registro encontrado!</td>
                 </tr>
@@ -123,7 +179,7 @@ class __TwigTemplate_91bd68699511c7bec5148e3e3e79e54aac14f766a7029cdbdf481f8f965
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['animal'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 53
         echo "        </tbody>
 
     </table>
@@ -149,7 +205,7 @@ class __TwigTemplate_91bd68699511c7bec5148e3e3e79e54aac14f766a7029cdbdf481f8f965
 
     public function getDebugInfo()
     {
-        return array (  127 => 35,  117 => 30,  109 => 27,  103 => 26,  99 => 25,  96 => 24,  91 => 23,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  183 => 53,  173 => 48,  165 => 45,  159 => 44,  155 => 43,  152 => 42,  147 => 41,  132 => 29,  123 => 22,  114 => 19,  111 => 18,  107 => 17,  98 => 14,  95 => 13,  91 => 12,  82 => 9,  79 => 8,  75 => 7,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -160,11 +216,29 @@ class __TwigTemplate_91bd68699511c7bec5148e3e3e79e54aac14f766a7029cdbdf481f8f965
 
 {% block body %}
 
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class=\"alert alert-success\">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('warning') %}
+    <div class=\"alert alert-warning\">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('danger') %}
+    <div class=\"alert alert-danger\">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+
+
     <h1>Listagem de Animais</h1>
     <hr>
     <div class=\"row\">
         <div class=\"col-md-12\">
-            <a href=\"\" class=\"btn btn-primary pull-right\">Cadastrar Animal</a></div>
+            <a href=\"{{ path('cadastrar_animal') }}\" class=\"btn btn-primary pull-right\">Cadastrar Animal</a></div>
     </div>
 
     <table class=\"table table-hover table-striped mt-3\">
@@ -180,7 +254,7 @@ class __TwigTemplate_91bd68699511c7bec5148e3e3e79e54aac14f766a7029cdbdf481f8f965
             <tr>
                 <td>{{animal.id}}</td>
                 <td><a href=\"{{ path('visualizar_animal', {'id':animal.id}) }}\">{{animal.nome}}</a></td>
-                <td>{{animal.dataNascimento}}</td>
+                <td>{{animal.dataNascimento|date(\"d/m/Y\")}}</td>
             </tr>
             {% else %}
                 <tr>

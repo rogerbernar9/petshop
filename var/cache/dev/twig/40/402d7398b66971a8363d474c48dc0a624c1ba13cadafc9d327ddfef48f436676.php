@@ -123,6 +123,39 @@ class __TwigTemplate_9fdac94b5ebb8a8d8f37fb58843c97c640d7e68db6918542d97b7284367
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["cliente"]) || array_key_exists("cliente", $context) ? $context["cliente"] : (function () { throw new Twig_Error_Runtime('Variable "cliente" does not exist.', 36, $this->source); })()), "endereco", array()), "bairro", array()), "html", null, true);
         echo "</td>
     </tr>
+    <tr>
+
+        <th colspan=\"2\">Animais</th>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            ";
+        // line 45
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["cliente"]) || array_key_exists("cliente", $context) ? $context["cliente"] : (function () { throw new Twig_Error_Runtime('Variable "cliente" does not exist.', 45, $this->source); })()), "animal", array()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["animal"]) {
+            // line 46
+            echo "                <li><a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("visualizar_animal", array("id" => twig_get_attribute($this->env, $this->source, $context["animal"], "id", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["animal"], "nome", array()), "html", null, true);
+            echo "</a></li>
+            ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 48
+            echo "                <li>Nenhum animal para esse cliente</li>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['animal'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 50
+        echo "        </td>
+    </tr>
 
 </table>
 
@@ -147,7 +180,7 @@ class __TwigTemplate_9fdac94b5ebb8a8d8f37fb58843c97c640d7e68db6918542d97b7284367
 
     public function getDebugInfo()
     {
-        return array (  123 => 36,  114 => 32,  104 => 25,  97 => 21,  90 => 17,  83 => 13,  74 => 8,  65 => 7,  54 => 5,  45 => 4,  15 => 1,);
+        return array (  157 => 50,  150 => 48,  140 => 46,  135 => 45,  123 => 36,  114 => 32,  104 => 25,  97 => 21,  90 => 17,  83 => 13,  74 => 8,  65 => 7,  54 => 5,  45 => 4,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -188,6 +221,20 @@ class __TwigTemplate_9fdac94b5ebb8a8d8f37fb58843c97c640d7e68db6918542d97b7284367
     <tr>
             <th>Bairro</th>
             <td>{{cliente.endereco.bairro}}</td>
+    </tr>
+    <tr>
+
+        <th colspan=\"2\">Animais</th>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            {% for animal in cliente.animal %}
+                <li><a href=\"{{ path('visualizar_animal', {'id': animal.id}) }}\">{{ animal.nome }}</a></li>
+            {% else %}
+                <li>Nenhum animal para esse cliente</li>
+            {% endfor %}
+        </td>
     </tr>
 
 </table>

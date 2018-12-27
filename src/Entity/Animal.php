@@ -54,7 +54,7 @@ class Animal
      *
      * @return  date
      */ 
-    public function getData_nascimento()
+    public function getDataNascimento()
     {
         return $this->data_nascimento;
     }
@@ -66,7 +66,7 @@ class Animal
      *
      * @return  self
      */ 
-    public function setData_nascimento(date $data_nascimento)
+    public function setDataNascimento($data_nascimento)
     {
         $this->data_nascimento = $data_nascimento;
 
@@ -90,7 +90,7 @@ class Animal
      *
      * @return  self
      */ 
-    public function setNome(string $nome)
+    public function setNome($nome)
     {
         $this->nome = $nome;
 
@@ -134,7 +134,7 @@ class Animal
      *
      * @return  self
      */ 
-    public function setCliente(object $cliente)
+    public function setCliente($cliente)
     {
         $this->cliente = $cliente;
 
@@ -142,7 +142,6 @@ class Animal
     }
 
     /**
-     * Get the value of raca
      *
      * @return  object
      */ 
@@ -152,13 +151,12 @@ class Animal
     }
 
     /**
-     * Set the value of raca
      *
      * @param  object  $raca
      *
-     * @return  self
+     * @return  Animal
      */ 
-    public function setRaca(object $raca)
+    public function setRaca($raca)
     {
         $this->raca = $raca;
 

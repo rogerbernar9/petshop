@@ -92,7 +92,7 @@ class Raca
      * @param  object  $especie
      * @return Raca
      */ 
-    public function setEspecie(object $especie)
+    public function setEspecie($especie)
     {
         $this->especie = $especie;
 
@@ -103,4 +103,5 @@ class Raca
     {
         return $this->getEspecie() ? $this->getEspecie()->getNome():null;
     }
+
 }

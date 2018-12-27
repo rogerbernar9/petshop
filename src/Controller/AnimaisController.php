@@ -3,10 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Animal;
+
+use App\Form\AnimalType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class AnimaisController extends AbstractController
 {
@@ -25,16 +29,47 @@ class AnimaisController extends AbstractController
     }
 
     /**
-     * @Route("/animal/visualizar/{id}", name="visualizar_animal")
-     * @Template("animal/view.html.twig")
+     * @Route("/animais/visualizar/{id}", name="visualizar_animal")
+     * @Template("animais/view.html.twig")
      * @param Animal $animal
      * @return array
     */
     public function view(Animal $animal)
+    {
+        return  [
+            'animal' =>$animal
+        ];
+    }
+
+    /**
+     * @Route("animais/cadastrar", name="cadastrar_animal")
+     * @Template("animais/create.html.twig")
+     * 
+     */
+    public function create(Request $request)
+    {
+        $animal = new Animal();
+        $form = $this->createForm(AnimalType::class, $animal);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
         {
-            return  [
-                'animal' =>$animal
-            ];
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($animal);
+            $em->flush();
+
+            $this->addFlash('success', "Animal foi salvo com sucesso!!");
+
+            return $this->redirectToRoute('listar_animais');
+
         }
+
+
+
+        return [
+            'form'=>$form->createView()
+        ];
+    }
+            
 
 }

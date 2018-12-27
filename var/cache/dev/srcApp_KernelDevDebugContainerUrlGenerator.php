@@ -21,9 +21,11 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
         'listar_animais' => array(array(), array('_controller' => 'App\\Controller\\AnimaisController::index'), array(), array(array('text', '/animais')), array(), array()),
-        'visualizar_animal' => array(array('id'), array('_controller' => 'App\\Controller\\AnimaisController::view'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/animal/visualizar')), array(), array()),
+        'visualizar_animal' => array(array('id'), array('_controller' => 'App\\Controller\\AnimaisController::view'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/animais/visualizar')), array(), array()),
+        'cadastrar_animal' => array(array(), array('_controller' => 'App\\Controller\\AnimaisController::create'), array(), array(array('text', '/animais/cadastrar')), array(), array()),
         'listar_clientes' => array(array(), array('_controller' => 'App\\Controller\\ClientesController::index'), array(), array(array('text', '/clientes')), array(), array()),
         'visualizar_cliente' => array(array('id'), array('_controller' => 'App\\Controller\\ClientesController::view'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/cliente/visualizar')), array(), array()),
+        'cadastrar_cliente' => array(array(), array('_controller' => 'App\\Controller\\ClientesController::create'), array(), array(array('text', '/cliente/cadastrar')), array(), array()),
         'default' => array(array(), array('_controller' => 'App\\Controller\\DefaultController::index'), array(), array(array('text', '/')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format', true), array('variable', '/', '\\d+', 'code', true), array('text', '/_error')), array(), array()),
         '_wdt' => array(array('token'), array('_controller' => 'web_profiler.controller.profiler::toolbarAction'), array(), array(array('variable', '/', '[^/]++', 'token', true), array('text', '/_wdt')), array(), array()),

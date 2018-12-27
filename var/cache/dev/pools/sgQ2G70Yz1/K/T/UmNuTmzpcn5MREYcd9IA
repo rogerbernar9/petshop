@@ -9,7 +9,7 @@
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/animal/visualizar/{id}',
+                    '/animais/visualizar/{id}',
                 ],
                 'name' => [
                     'visualizar_animal',
@@ -17,7 +17,7 @@
             ],
             'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Template' => [
                 'template' => [
-                    1 => 'animal/view.html.twig',
+                    1 => 'animais/view.html.twig',
                 ],
             ],
         ],

@@ -3,11 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Cliente;
+use App\Form\ClienteType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\VarDumper\VarDumper;
+
 
 class ClientesController extends AbstractController
 {
@@ -25,16 +30,6 @@ class ClientesController extends AbstractController
         ];
     }
 
-//    /**
-//     * @Route("/cliente/visualizar/{id}", name="visualizar_cliente")
-//     * @Template("clientes/view.html.twig")
-//     * @param Cliente $cliente
-//     */
-//    public function view(Cliente $cliente)
-//    {
-//        VarDumper::dump($cliente);
-//        exit;
-//    }
 
     /**
      * @Route("/cliente/visualizar/{id}", name="visualizar_cliente")
@@ -48,5 +43,36 @@ class ClientesController extends AbstractController
                 'cliente' =>$cliente
             ];
         }
+
+    /**
+     * @Route("cliente/cadastrar", name="cadastrar_cliente")
+     * @Template("clientes/create.html.twig")
+     * 
+     */
+    public function create(Request $request)
+    {
+        $cliente = new Cliente();
+        $form = $this->createForm(ClienteType::class, $cliente);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cliente);
+            $em->flush();
+
+            $this->addFlash('success', "Cliente foi salvo com sucesso!!");
+
+            return $this->redirectToRoute('listar_clientes');
+
+        }
+
+
+
+        return [
+            'form'=>$form->createView()
+        ];
+    }
+
 
 }
