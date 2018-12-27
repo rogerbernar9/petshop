@@ -25,6 +25,14 @@ class Raca
 
     private $nome;
 
+    /**
+     * @var object
+     * 
+     * @ORM\ManyToOne(targetEntity="App\Entity\Especie", inversedBy="id") 
+     * 
+     */
+    private $especie;
+
 
 
 
@@ -50,7 +58,7 @@ class Raca
     }
 
     /**
-     * Get the value of nome
+     * @return string
      */ 
     public function getNome()
     {
@@ -58,14 +66,41 @@ class Raca
     }
 
     /**
-     * Set the value of nome
+     * @param string $nome
      *
-     * @return  self
+     * @return Raca
      */ 
     public function setNome($nome)
     {
         $this->nome = $nome;
 
         return $this;
+    }
+
+    /**
+     *
+     * @return  object
+     */ 
+    public function getEspecie()
+    {
+        return $this->especie;
+    }
+
+    /**
+     * Set the value of especie
+     *
+     * @param  object  $especie
+     * @return Raca
+     */ 
+    public function setEspecie(object $especie)
+    {
+        $this->especie = $especie;
+
+        return $this;
+    }
+
+    public function getNomeEspecie()
+    {
+        return $this->getEspecie() ? $this->getEspecie()->getNome():null;
     }
 }

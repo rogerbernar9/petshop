@@ -40,6 +40,22 @@ class Cliente
 
     private $email;
 
+    /**
+     * @var object
+     * 
+     * @ORM\ManyToOne(targetEntity="App\Entity\Endereco", inversedBy="id")
+     */
+    private $endereco;
+
+    /**
+     * @var object
+     * 
+     * @ORM\ManyToMany(targetEntity="App\Entity\Animal", inversedBy="cliente")
+     * @ORM\JoinTable(name="animal_cliente")
+     * 
+     */
+    private $animal;
+
 
 
     /**
@@ -122,6 +138,54 @@ class Cliente
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of animal
+     *
+     * @return  object
+     */ 
+    public function getAnimal()
+    {
+        return $this->animal;
+    }
+
+    /**
+     * Set the value of animal
+     *
+     * @param  object  $animal
+     *
+     * @return  self
+     */ 
+    public function setAnimal(object $animal)
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of endereco
+     *
+     * @return  object
+     */ 
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * Set the value of endereco
+     *
+     * @param  object  $endereco
+     *
+     * @return  self
+     */ 
+    public function setEndereco(object $endereco)
+    {
+        $this->endereco = $endereco;
 
         return $this;
     }

@@ -52,7 +52,10 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
   <body>
 
     <nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">
-      <a class=\"navbar-brand\" href=\"#\">Navbar</a>
+      <a class=\"navbar-brand\" href=\"";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("default");
+        echo "\">PetShop Legal</a>
       <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
       </button>
@@ -60,13 +63,22 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
       <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">
         <ul class=\"navbar-nav mr-auto\">
           <li class=\"nav-item active\">
-            <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+            <a class=\"nav-link\" href=\"";
+        // line 30
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("default");
+        echo "\">Home <span class=\"sr-only\">(current)</span></a>
           </li>
           <li class=\"nav-item\">
-            <a class=\"nav-link\" href=\"#\">Clientes</a>
+            <a class=\"nav-link\" href=\"";
+        // line 33
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listar_clientes");
+        echo "\">Clientes</a>
           </li>
           <li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"#\">Animais</a>
+              <a class=\"nav-link\" href=\"";
+        // line 36
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listar_animais");
+        echo "\">Animais</a>
           </li>
   
         </ul>
@@ -141,9 +153,14 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  130 => 47,  121 => 46,  104 => 10,  83 => 48,  81 => 46,  42 => 10,  31 => 1,);
+        return array (  142 => 47,  133 => 46,  116 => 10,  95 => 48,  93 => 46,  80 => 36,  74 => 33,  68 => 30,  57 => 22,  42 => 10,  31 => 1,);
     }
 
     public function getSourceContext()
@@ -169,7 +186,7 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
   <body>
 
     <nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">
-      <a class=\"navbar-brand\" href=\"#\">Navbar</a>
+      <a class=\"navbar-brand\" href=\"{{path('default')}}\">PetShop Legal</a>
       <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
       </button>
@@ -177,13 +194,13 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
       <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">
         <ul class=\"navbar-nav mr-auto\">
           <li class=\"nav-item active\">
-            <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+            <a class=\"nav-link\" href=\"{{path('default')}}\">Home <span class=\"sr-only\">(current)</span></a>
           </li>
           <li class=\"nav-item\">
-            <a class=\"nav-link\" href=\"#\">Clientes</a>
+            <a class=\"nav-link\" href=\"{{path('listar_clientes')}}\">Clientes</a>
           </li>
           <li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"#\">Animais</a>
+              <a class=\"nav-link\" href=\"{{ path('listar_animais') }}\">Animais</a>
           </li>
   
         </ul>

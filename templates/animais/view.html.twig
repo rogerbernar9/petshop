@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+{{ animal.nome }} - Visualizar animal - {% endblock %}
+
+{% block body %}
+<h1>Visualizando animal - {{animal.nome}}</h1>
+<table class="table table-striped">
+
+    <tr>
+        <th>Cod</th>
+        <td>{{animal.id}}</td>
+    </tr>
+    <tr>
+        <th>Nome</th>
+        <td>{{animal.nome}}</td>
+    </tr>
+    <tr>
+        <th>Data nasc.</th>
+        <td>{{animal.dataNascimento}}</td>
+    </tr>
+
+
+</table>
+
+{% endblock %}
+
