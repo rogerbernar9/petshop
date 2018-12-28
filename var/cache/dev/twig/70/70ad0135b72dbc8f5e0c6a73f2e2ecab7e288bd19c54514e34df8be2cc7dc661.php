@@ -62,19 +62,34 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
 
       <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">
         <ul class=\"navbar-nav mr-auto\">
-          <li class=\"nav-item active\">
+          <li class=\"nav-item ";
+        // line 29
+        if (preg_match("/(.*)default(.*)/", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 29, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"))) {
+            echo "active";
+        }
+        echo "\">
             <a class=\"nav-link\" href=\"";
         // line 30
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("default");
         echo "\">Home <span class=\"sr-only\">(current)</span></a>
           </li>
-          <li class=\"nav-item\">
+          <li class=\"nav-item ";
+        // line 32
+        if (preg_match("/(.*)cliente(.*)/", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 32, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"))) {
+            echo "active";
+        }
+        echo "\">
             <a class=\"nav-link\" href=\"";
         // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listar_clientes");
         echo "\">Clientes</a>
           </li>
-          <li class=\"nav-item\">
+          <li class=\"nav-item ";
+        // line 35
+        if (preg_match("/(.*)anima(.*)/", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 35, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"))) {
+            echo "active";
+        }
+        echo "\">
               <a class=\"nav-link\" href=\"";
         // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listar_animais");
@@ -160,7 +175,7 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
 
     public function getDebugInfo()
     {
-        return array (  142 => 47,  133 => 46,  116 => 10,  95 => 48,  93 => 46,  80 => 36,  74 => 33,  68 => 30,  57 => 22,  42 => 10,  31 => 1,);
+        return array (  157 => 47,  148 => 46,  131 => 10,  110 => 48,  108 => 46,  95 => 36,  89 => 35,  84 => 33,  78 => 32,  73 => 30,  67 => 29,  57 => 22,  42 => 10,  31 => 1,);
     }
 
     public function getSourceContext()
@@ -193,13 +208,13 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
 
       <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">
         <ul class=\"navbar-nav mr-auto\">
-          <li class=\"nav-item active\">
+          <li class=\"nav-item {% if app.request.attributes.get(\"_route\") matches '/(.*)default(.*)/' %}active{% endif %}\">
             <a class=\"nav-link\" href=\"{{path('default')}}\">Home <span class=\"sr-only\">(current)</span></a>
           </li>
-          <li class=\"nav-item\">
+          <li class=\"nav-item {% if app.request.attributes.get(\"_route\") matches '/(.*)cliente(.*)/' %}active{% endif %}\">
             <a class=\"nav-link\" href=\"{{path('listar_clientes')}}\">Clientes</a>
           </li>
-          <li class=\"nav-item\">
+          <li class=\"nav-item {% if app.request.attributes.get(\"_route\") matches '/(.*)anima(.*)/' %}active{% endif %}\">
               <a class=\"nav-link\" href=\"{{ path('listar_animais') }}\">Animais</a>
           </li>
   

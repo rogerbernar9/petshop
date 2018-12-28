@@ -4,7 +4,6 @@ namespace App\Form;
 
 
 use App\Entity\Cliente;
-use App\Entity\Endereco;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

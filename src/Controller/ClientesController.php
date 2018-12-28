@@ -23,7 +23,7 @@ class ClientesController extends AbstractController
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $clientes = $em->getRepository(Cliente::class)->findAll();;
+        $clientes = $em->getRepository(Cliente::class)->findAll();
 
         return  [
             'clientes' => $clientes

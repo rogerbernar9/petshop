@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Cliente;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use PDO;
 
 /**
  * @method Cliente|null find($id, $lockMode = null, $lockVersion = null)
@@ -22,19 +23,19 @@ class ClienteRepository extends ServiceEntityRepository
     // /**
     //  * @return Cliente[] Returns an array of Cliente objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function qtdAnimaisPorCliente()
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $sql = "select count(ac.animal_id) as qtde,
+                c.nome from animal_cliente ac join cliente c
+                on c.id = ac.cliente_id
+                group by c.nome";
+
+        return $this->getEntityManager()->getConnection()->executeQuery($sql)
+            ->fetchAll(PDO::FETCH_OBJ);
+        
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Cliente
